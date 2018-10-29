@@ -1,0 +1,13 @@
+<%= form_with(model: @user_status) do |f| %>
+  <div class="field">
+    <%= f.label(:name) %>
+    <%= f.text_field(:name) %>
+  </div>
+
+  <div class="field">
+    <%= f.label(:loan_days) %>
+    <%= f.text_field(:loan_days) %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

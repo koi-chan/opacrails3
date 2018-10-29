@@ -1,0 +1,27 @@
+<h1>UserStatuses#show</h1>
+<p>Find me in app/views/user_statuses/show.html.erb</p>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <td><%= @user_status.id %></td>
+  </tr>
+  <tr>
+    <th>利用者状態</th>
+    <td><%= @user_status.name %></td>
+  </tr>
+  <tr>
+    <th>利用者状態</th>
+    <td><%= @user_status.loan_days %></td>
+  </tr>
+  <tr>
+    <th>作成日</th>
+    <td><%= @user_status.created_at %></td>
+  </tr>
+  <tr>
+    <th>最終更新日</th>
+    <td><%= @user_status.updated_at %></td>
+  </tr>
+</table>
+
+<%= link_to('edit', edit_user_status_path(@user_status)) %>
