@@ -1,4 +1,6 @@
 class BibliographiesController < ApplicationController
+  before_action :set_target_bibliography, only: [:show, :edit, :update]
+
   def index
     @bibliographies = Bibliography.all
   end
@@ -8,20 +10,32 @@ class BibliographiesController < ApplicationController
   end
 
   def create
-    @bibliography = Bibliography.new(bibliography_create_params)
+    @bibliography = Bibliography.new(bibliography_params)
     @bibliography.save
     redirect_to(@bibliography)
   end
 
   def show
-    @bibliography = Bibliography.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    @bibliography.update(bibliography_params)
+    @bibliography.save
+    redirect_to(@bibliography)
   end
 
   private
 
-  def bibliography_create_params
+  def bibliography_params
     params.
       require(:bibliography).
       permit(:isbn13, :publisher, :author, :title)
+  end
+
+  def set_target_bibliography
+    @bibliography = Bibliography.find(params[:id])
   end
 end
