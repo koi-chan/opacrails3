@@ -31,8 +31,8 @@ class CollectionsController < ApplicationController
 
   def collection_params
     params.
-      require().
-      permit()
+      require(:collection).
+      permit(:bibliography_id, :callnum)
   end
 
   def set_target_collection

@@ -1,0 +1,13 @@
+<%= form_with(model: @collection) do |f| %>
+  <div class="field">
+    <%= f.label(:bibliography_id) %>
+    <%= f.text_field(:bibliography_id) %>
+  </div>
+
+  <div class="field">
+    <%= f.label(:callnum) %>
+    <%= f.text_field(:callnum) %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

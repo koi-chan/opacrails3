@@ -1,2 +1,39 @@
 <h1>Collections#show</h1>
 <p>Find me in app/views/collections/show.html.erb</p>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <td><%= @collection.id %></td>
+  </tr>
+  <tr>
+    <th>Bibliography ID</th>
+    <td><%= @collection.bibliography_id %></td>
+  </tr>
+  <tr>
+    <th>ISBN 13</th>
+    <td><%= @collection.bibliography.isbn13 %></td>
+  </tr>
+  <tr>
+    <th>出版者</th>
+    <td><%= @collection.bibliography.publisher %></td>
+  </tr>
+  <tr>
+    <th>著者</th>
+    <td><%= @collection.bibliography.author %></td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @collection.bibliography.title %></td>
+  </tr>
+  <tr>
+    <th>作成日</th>
+    <td><%= @collection.created_at %></td>
+  </tr>
+  <tr>
+    <th>最終更新日</th>
+    <td><%= @collection.updated_at %></td>
+  </tr>
+</table>
+
+<%= link_to('edit', edit_collection_path(@collection)) %>
