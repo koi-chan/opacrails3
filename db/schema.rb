@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_092246) do
+ActiveRecord::Schema.define(version: 2018_10_29_125835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2018_10_29_092246) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["title"], name: "index_bibliographies_on_title"
+  end
+
+  create_table "collections", force: :cascade do |t|
+    t.bigint "bibliography_id"
+    t.string "callnum"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bibliography_id"], name: "index_collections_on_bibliography_id"
   end
 
 end
