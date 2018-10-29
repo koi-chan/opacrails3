@@ -17,7 +17,7 @@
   <tbody><% @users.each do |u| %>
     <tr>
       <td><%= u.id %></td>
-      <td><%= b.name %></td>
+      <td><%= u.name %></td>
       <td><%= u.created_at %></td>
       <td><%= u.updated_at %></td>
       <td><%= link_to('show', user_path(u)) %></td>
