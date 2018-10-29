@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  isbn13: 
+  publisher: MyString
+  author: MyString
+  title: MyString
+
+two:
+  isbn13: 
+  publisher: MyString
+  author: MyString
+  title: MyString
