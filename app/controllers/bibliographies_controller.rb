@@ -1,5 +1,6 @@
 class BibliographiesController < ApplicationController
   def index
+    @bibliographies = Bibliography.all
   end
 
   def new
@@ -13,6 +14,7 @@ class BibliographiesController < ApplicationController
   end
 
   def show
+    @bibliography = Bibliography.find(params[:id])
   end
 
   private

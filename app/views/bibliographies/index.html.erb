@@ -1,2 +1,29 @@
 <h1>Bibliography#index</h1>
 <p>Find me in app/views/bibliography/index.html.erb</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>ISBN13</th>
+      <th>出版者</th>
+      <th>著者</th>
+      <th>タイトル</th>
+      <th>作成日</th>
+      <th>最終更新日</th>
+    </tr>
+  </thead>
+  <tbody><% @bibliographies.each do |b| %>
+    <tr>
+      <td><%= b.id %></td>
+      <td><%= b.isbn13 %></td>
+      <td><%= b.publisher %></td>
+      <td><%= b.author %></td>
+      <td><%= b.title %></td>
+      <td><%= b.created_at %></td>
+      <td><%= b.updated_at %></td>
+      <td><%= link_to('show', bibliography_path(b)) %></td>
+      <td><%= link_to('edit', edit_bibliography_path(b)) %></td>
+    </tr>
+  <% end %></tbody>
+</table>

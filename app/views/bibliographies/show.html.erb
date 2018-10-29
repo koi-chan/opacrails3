@@ -1,2 +1,35 @@
 <h1>Bibliography#show</h1>
 <p>Find me in app/views/bibliography/show.html.erb</p>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <td><%= @bibliography.id %></td>
+  </tr>
+  <tr>
+    <th>ISBN13</th>
+    <td><%= @bibliography.isbn13 %></td>
+  </tr>
+  <tr>
+    <th>出版者</th>
+    <td><%= @bibliography.publisher %></td>
+  </tr>
+  <tr>
+    <th>著者</th>
+    <td><%= @bibliography.author %></td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @bibliography.title %></td>
+  </tr>
+  <tr>
+    <th>作成日</th>
+    <td><%= @bibliography.created_at %></td>
+  </tr>
+  <tr>
+    <th>最終更新日</th>
+    <td><%= @bibliography.updated_at %></td>
+  </tr>
+</table>
+
+<%= link_to('edit', edit_bibliography_path(@bibliography)) %>
