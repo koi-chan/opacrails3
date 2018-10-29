@@ -1,2 +1,23 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <td><%= @user.id %></td>
+  </tr>
+  <tr>
+    <th>氏名</th>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <th>作成日</th>
+    <td><%= @user.created_at %></td>
+  </tr>
+  <tr>
+    <th>最終更新日</th>
+    <td><%= @user.updated_at %></td>
+  </tr>
+</table>
+
+<%= link_to('edit', edit_user_path(@user)) %>
