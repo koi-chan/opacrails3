@@ -9,7 +9,7 @@ class BibliographiesController < ApplicationController
   def create
     @bibliography = Bibliography.new(bibliography_create_params)
     @bibliography.save
-    redirect_to(@bibilography)
+    redirect_to(@bibliography)
   end
 
   def show
