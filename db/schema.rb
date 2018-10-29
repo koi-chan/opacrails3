@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_070317) do
+ActiveRecord::Schema.define(version: 2018_10_29_092246) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bibliographies", force: :cascade do |t|
-    t.integer "isbn13"
+    t.bigint "isbn13"
     t.string "publisher"
     t.string "author"
     t.string "title"
