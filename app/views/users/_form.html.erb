@@ -4,5 +4,10 @@
     <%= f.text_field(:name) %>
   </div>
 
+  <div class="field">
+    <%= f.label(:user_status) %>
+    <%= f.select(:user_status_id, @user_statuses.map{|t| [t.name, t.id]}) %>
+  </div>
+
   <%= f.submit %>
 <% end %>

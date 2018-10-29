@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user_statuses = UserStatus.all
   end
 
   def create
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @user_statuses = UserStatus.all
   end
 
   def update
@@ -32,7 +34,7 @@ class UsersController < ApplicationController
   def user_params
     params.
       require(:user).
-      permit(:name)
+      permit(:name, :user_status_id)
   end
 
   def set_target_user

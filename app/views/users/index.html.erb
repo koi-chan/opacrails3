@@ -8,6 +8,7 @@
     <tr>
       <th>ID</th>
       <th>氏名</th>
+      <th>利用者状態</th>
       <th>作成日</th>
       <th>最終更新日</th>
       <th>詳細表示</th>
@@ -18,6 +19,7 @@
     <tr>
       <td><%= u.id %></td>
       <td><%= u.name %></td>
+      <td><%= u.user_status.name %></td>
       <td><%= u.created_at %></td>
       <td><%= u.updated_at %></td>
       <td><%= link_to('show', user_path(u)) %></td>
