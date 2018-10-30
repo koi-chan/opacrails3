@@ -21,6 +21,7 @@
       <th>最終更新日</th>
       <th>詳細表示</th>
       <th>編集</th>
+      <th>返却</th>
     </tr>
   </thead>
   <tbody><% @loans.each do |l| %>
@@ -40,6 +41,7 @@
       <td><%= l.updated_at %></td>
       <td><%= link_to('show', loan_path(l)) %></td>
       <td><%= link_to('edit', edit_loan_path(l)) %></td>
+      <td><%= link_to('delete', loan_path(l), method: :delete) %></td>
     </tr>
   <% end %></tbody>
 </table>

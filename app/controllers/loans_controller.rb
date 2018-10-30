@@ -1,5 +1,5 @@
 class LoansController < ApplicationController
-  before_action :set_target_loan, only: [:show, :edit, :update]
+  before_action :set_target_loan, only: [:show, :edit, :update, :destroy]
 
   def index
     @loans = Loan.all
@@ -37,6 +37,21 @@ class LoansController < ApplicationController
     end
 
     @loan.save
+    redirect_to(@loan)
+  end
+
+  def destroy
+    loan_history = LoanHistory.new
+    %w(user_id collection_id loan_date).each do |key|
+      loan_history[key] = @loan[key]
+    end
+    loan_history.return_date = Date.today
+
+    Loan.transaction do
+      loan_history.save!
+      @loan.destroy!
+    end
+
     redirect_to(@loan)
   end
 
