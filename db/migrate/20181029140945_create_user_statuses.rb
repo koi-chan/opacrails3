@@ -7,12 +7,12 @@ class CreateUserStatuses < ActiveRecord::Migration[5.2]
       t.timestamps
     end
 
-    add_reference(:users, :user_status)
+    add_reference(:users, :user_status, foreign_key: true)
   end
 
   def down
     drop_table :user_statuses
 
-    remove_reference(:users, :user_status)
+    remove_reference(:users, :user_status, foreign_key: true)
   end
 end

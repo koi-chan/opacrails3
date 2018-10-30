@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_29_140945) do
+ActiveRecord::Schema.define(version: 2018_10_30_043613) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,18 @@ ActiveRecord::Schema.define(version: 2018_10_29_140945) do
     t.index ["bibliography_id"], name: "index_collections_on_bibliography_id"
   end
 
+  create_table "loans", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "collection_id"
+    t.date "loan_date"
+    t.date "return_date"
+    t.integer "reloan_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["collection_id"], name: "index_loans_on_collection_id"
+    t.index ["user_id"], name: "index_loans_on_user_id"
+  end
+
   create_table "user_statuses", force: :cascade do |t|
     t.string "name"
     t.integer "loan_days"
@@ -49,4 +61,7 @@ ActiveRecord::Schema.define(version: 2018_10_29_140945) do
     t.index ["user_status_id"], name: "index_users_on_user_status_id"
   end
 
+  add_foreign_key "loans", "collections"
+  add_foreign_key "loans", "users"
+  add_foreign_key "users", "user_statuses"
 end
