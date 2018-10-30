@@ -14,8 +14,7 @@ class LoansController < ApplicationController
   def create
     @loan = Loan.new(loan_params)
     @loan.loan_date = Date.today
-    @loan.return_date = @loan.loan_date + @loan.user.user_status.loan_days
-    @loan.reloan_count = 0
+    set_return_date
     @loan.save
     redirect_to(@loan)
   end
@@ -30,7 +29,7 @@ class LoansController < ApplicationController
 
   def update
     @loan.update(loan_params)
-    @loan.return_date = @loan.loan_date + @loan.user.user_status.loan_days
+    set_return_date
     @loan.reloan_count += 1
 
     if(@loan.user.user_status.reloan < @loan.reloan_count)
@@ -51,5 +50,9 @@ class LoansController < ApplicationController
 
   def set_target_loan
     @loan = Loan.find(params[:id])
+  end
+
+  def set_return_date
+    @loan.return_date = @loan.loan_date + @loan.user.user_status.loan_days
   end
 end
