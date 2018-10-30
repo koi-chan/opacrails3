@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  collection: one
+  loan_date: 2018-10-30
+  return_date: 2018-10-30
+
+two:
+  user: two
+  collection: two
+  loan_date: 2018-10-30
+  return_date: 2018-10-30
