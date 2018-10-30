@@ -32,6 +32,11 @@ class LoansController < ApplicationController
     @loan.update(loan_params)
     @loan.return_date = @loan.loan_date + @loan.user.user_status.loan_days
     @loan.reloan_count += 1
+
+    if(@loan.user.user_status.reloan < @loan.reloan_count)
+      # 再貸出回数を超えているエラー
+    end
+
     @loan.save
     redirect_to(@loan)
   end
