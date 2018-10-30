@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_054553) do
+ActiveRecord::Schema.define(version: 2018_10_30_103556) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2018_10_30_054553) do
     t.bigint "collection_id"
     t.date "loan_date"
     t.date "return_date"
-    t.integer "reloan_count"
+    t.integer "reloan_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["collection_id"], name: "index_loans_on_collection_id"
