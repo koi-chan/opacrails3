@@ -59,15 +59,15 @@ user_statuses = UserStatus.create([
 users = User.create([
   {
     name: '生徒1',
-    user_status_id: 1
+    user_status_id: 2
   },
   {
     name: '生徒2',
-    user_status_id: 1
+    user_status_id: 2
   },
   {
     name: '先生1',
-    user_status_id: 2
+    user_status_id: 3
   }
 ])
 
@@ -75,6 +75,5 @@ loans = Loan.create([
   {
     user_id: 1,
     collection_id: 1,
-    loan_date: Date.today,
   }
 ])
