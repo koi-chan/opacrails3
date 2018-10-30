@@ -1,0 +1,13 @@
+<%= form_with(model: @loan) do |f| %>
+  <div class="field">
+    <%= f.label(:user) %>
+    <%= f.select(:user_id, @users.map{|t| [t.name, t.id]}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label(:collection) %>
+    <%= f.select(:collection_id, @collections.map{|t| [t.bibliography.title, t.id]}) %>
+  </div>
+
+  <%= f.submit %>
+<% end %>

@@ -1,2 +1,45 @@
 <h1>Loans#index</h1>
 <p>Find me in app/views/loans/index.html.erb</p>
+
+<%= link_to('new', new_loan_path) %>
+
+<table>
+  <thead>
+    <tr>
+      <th>貸出ID</th>
+      <th>利用者ID</th>
+      <th>利用者名</th>
+      <th>標準貸出日数</th>
+      <th>貸出日</th>
+      <th>返却予定日</th>
+      <th>再貸出回数</th>
+      <th>資料ID</th>
+      <th>請求記号</th>
+      <th>著者名</th>
+      <th>タイトル</th>
+      <th>作成日</th>
+      <th>最終更新日</th>
+      <th>詳細表示</th>
+      <th>編集</th>
+    </tr>
+  </thead>
+  <tbody><% @loans.each do |l| %>
+    <tr>
+      <td><%= l.id %></td>
+      <td><%= l.user.id %></td>
+      <td><%= l.user.name %></td>
+      <td><%= l.user.user_status.loan_days %></td>
+      <td><%= l.loan_date %></td>
+      <td><%= l.return_date %></td>
+      <td><%= l.reloan_count %></td>
+      <td><%= l.collection.id %></td>
+      <td><%= l.collection.callnum %></td>
+      <td><%= l.collection.bibliography.author %></td>
+      <td><%= l.collection.bibliography.title %></td>
+      <td><%= l.created_at %></td>
+      <td><%= l.updated_at %></td>
+      <td><%= link_to('show', loan_path(l)) %></td>
+      <td><%= link_to('edit', edit_loan_path(l)) %></td>
+    </tr>
+  <% end %></tbody>
+</table>
