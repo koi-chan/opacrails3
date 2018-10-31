@@ -31,6 +31,10 @@
     <td><%= @collection.callnum %></td>
   </tr>
   <tr>
+    <th>貸出状態</th>
+    <td><%= @collection.loaned? %></td>
+  </tr>
+  <tr>
     <th>作成日</th>
     <td><%= @collection.created_at %></td>
   </tr>
