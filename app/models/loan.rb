@@ -3,7 +3,7 @@ class Loan < ApplicationRecord
   belongs_to :collection
 
   validates(:user_id, presence: true)
-  validates(:collection_id, presence: true)
+  validates(:collection_id, presence: true, uniqueness: true)
   validate(:loan_date, :validate_loan_date)
   validate(:return_date, :validate_return_date)
   validates(:reloan_count, presence: true)
