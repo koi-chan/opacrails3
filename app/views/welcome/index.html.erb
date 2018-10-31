@@ -1,2 +1,11 @@
 <h1>Welcome#index</h1>
 <p>Find me in app/views/welcome/index.html.erb</p>
+
+<ul>
+  <li><%= link_to('bibliography', bibliographies_path) %></li>
+  <li><%= link_to('collection', collections_path) %></li>
+  <li><%= link_to('user', users_path) %></li>
+  <li><%= link_to('user_status', user_statuses_path) %></li>
+  <li><%= link_to('loan', loans_path) %></li>
+  <li><%= link_to('loan_history', loan_histories_path) %></li>
+</ul>
