@@ -1,5 +1,12 @@
 class Bibliography < ApplicationRecord
   has_many :collections
 
-  validates(:isbn13, length: {is: 13})
+  validate(:isbn13, :validate_isbn13)
+
+  def validate_isbn13
+    isbn13 = Lisbn.new(self.isbn13.to_s)
+    unless(isbn13.valid?)
+      errors.add(:isbn13, 'ISBN13 の形式が正しくありません')
+    end
+  end
 end
