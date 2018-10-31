@@ -14,6 +14,6 @@ class Bibliography < ApplicationRecord
   end
 
   def isbn
-    Lisbn.new(self.isbn13.to_s)
+    Lisbn.new(self.isbn13)
   end
 end
