@@ -1,0 +1,37 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  authority_type: one
+  ndl_id: 
+  name_kana: MyString
+  see_reference: 
+  see_also_reference: 
+  authority_see_reference: 
+  hypernym: 
+  hyponym: 
+  related: 
+  birth_year: 1
+  death_year: 1
+  major_subject: MyString
+  history: MyText
+  source: MyText
+  memo: MyText
+
+two:
+  name: MyString
+  authority_type: two
+  ndl_id: 
+  name_kana: MyString
+  see_reference: 
+  see_also_reference: 
+  authority_see_reference: 
+  hypernym: 
+  hyponym: 
+  related: 
+  birth_year: 1
+  death_year: 1
+  major_subject: MyString
+  history: MyText
+  source: MyText
+  memo: MyText
