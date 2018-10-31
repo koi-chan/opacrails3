@@ -20,7 +20,7 @@ class BibliographiesController < ApplicationController
   end
 
   def edit
-    @publisher = Publisher.all
+    @publishers = Publisher.all
   end
 
   def update

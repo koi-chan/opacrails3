@@ -1,2 +1,35 @@
 <h1>Publishers#show</h1>
 <p>Find me in app/views/publishers/show.html.erb</p>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <td><%= @publisher.id %></td>
+  </tr>
+  <tr>
+    <th>出版地</th>
+    <td><%= @publisher.place %></td>
+  </tr>
+  <tr>
+    <th>名前</th>
+    <td><%= @publisher.name %></td>
+  </tr>
+  <tr>
+    <th>出版事項</th>
+    <td><%= @publisher.publication %></td>
+  </tr>
+  <tr>
+    <th>ISBN 出版者コード</th>
+    <td><%= @publisher.isbn_code %></td>
+  </tr>
+  <tr>
+    <th>作成日</th>
+    <td><%= @publisher.created_at %></td>
+  </tr>
+  <tr>
+    <th>最終更新日</th>
+    <td><%= @publisher.updated_at %></td>
+  </tr>
+</table>
+
+<%= link_to('edit', edit_publisher_path(@publisher)) %>

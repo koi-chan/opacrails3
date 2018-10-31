@@ -1,2 +1,31 @@
 <h1>Publishers#index</h1>
 <p>Find me in app/views/publishers/index.html.erb</p>
+
+<%= link_to('new', new_publisher_path) %>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>出版地</th>
+      <th>名前</th>
+      <th>ISBN 出版者コード</th>
+      <th>作成日</th>
+      <th>最終更新日</th>
+      <th>詳細表示</th>
+      <th>編集</th>
+    </tr>
+  </thead>
+  <tbody><% @publishers.each do |p| %>
+    <tr>
+      <td><%= p.id %></td>
+      <td><%= p.place %></td>
+      <td><%= p.name %></td>
+      <td><%= p.isbn_code %></td>
+      <td><%= p.created_at %></td>
+      <td><%= p.updated_at %></td>
+      <td><%= link_to('show', publisher_path(p)) %></td>
+      <td><%= link_to('edit', edit_publisher_path(p)) %></td>
+    </tr>
+  <% end %></tbody>
+</table>
