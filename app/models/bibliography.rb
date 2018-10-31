@@ -4,9 +4,16 @@ class Bibliography < ApplicationRecord
   validate(:isbn13, :validate_isbn13)
 
   def validate_isbn13
-    isbn13 = Lisbn.new(self.isbn13.to_s)
-    unless(isbn13.valid?)
+    unless(isbn.valid?)
       errors.add(:isbn13, 'ISBN13 の形式が正しくありません')
     end
+  end
+
+  def isbn10
+    isbn.isbn10
+  end
+
+  def isbn
+    Lisbn.new(self.isbn13.to_s)
   end
 end
