@@ -7,6 +7,7 @@ class BibliographiesController < ApplicationController
 
   def new
     @bibliography = Bibliography.new
+    @publishers = Publisher.all
   end
 
   def create
@@ -19,6 +20,7 @@ class BibliographiesController < ApplicationController
   end
 
   def edit
+    @publisher = Publisher.all
   end
 
   def update

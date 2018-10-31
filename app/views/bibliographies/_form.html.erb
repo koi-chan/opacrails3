@@ -5,7 +5,7 @@
   </tr>
   <tr>
     <th><%= f.label(:publisher) %></th>
-    <td><%= f.text_field(:publisher) %></td>
+    <td><%= f.select(:publisher_id, @publishers.map{|t| [t.publication, t.id]}) %></td>
   </tr>
   <tr>
     <th><%= f.label(:author) %></th>
