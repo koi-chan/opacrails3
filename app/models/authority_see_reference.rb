@@ -1,0 +1,2 @@
+class AuthoritySeeReference < ApplicationRecord
+end
