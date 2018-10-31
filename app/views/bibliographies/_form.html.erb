@@ -1,23 +1,21 @@
-<%= form_with(model: @bibliography) do |f| %>
-  <div class="field">
-    <%= f.label(:isbn13) %>
-    <%= f.text_field(:isbn13) %>
-  </div>
-
-  <div class="field">
-    <%= f.label(:publisher) %>
-    <%= f.text_field(:publisher) %>
-  </div>
-
-  <div class="field">
-    <%= f.label(:author) %>
-    <%= f.text_field(:author) %>
-  </div>
-
-  <div class="field">
-    <%= f.label(:title) %>
-    <%= f.text_field(:title) %>
-  </div>
-
-  <%= f.submit %>
-<% end %>
+<table><%= form_with(model: @bibliography) do |f| %>
+  <tr>
+    <th><%= f.label(:isbn13) %></th>
+    <td><%= f.text_field(:isbn13) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:publisher) %></th>
+    <td><%= f.text_field(:publisher) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:author) %></th>
+    <td><%= f.text_field(:author) %></td>
+  </tr>
+  <tr>
+    <th><%= f.label(:title) %></th>
+    <td><%= f.text_field(:title) %></td>
+  </tr>
+  <tr>
+    <td colspan="2"><%= f.submit %></td>
+  </tr>
+<% end %></table>
