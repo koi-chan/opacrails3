@@ -1,5 +1,6 @@
 class Bibliography < ApplicationRecord
   has_many :collections
+  belongs_to :publisher
 
   validate(:isbn13, :validate_isbn13)
 

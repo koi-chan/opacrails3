@@ -16,12 +16,13 @@ ActiveRecord::Schema.define(version: 2018_10_31_063431) do
   enable_extension "plpgsql"
 
   create_table "bibliographies", force: :cascade do |t|
-    t.string "publisher"
+    t.string "isbn13"
     t.string "author"
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "isbn13"
+    t.bigint "publisher_id"
+    t.index ["publisher_id"], name: "index_bibliographies_on_publisher_id"
     t.index ["title"], name: "index_bibliographies_on_title"
   end
 
@@ -58,7 +59,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_063431) do
 
   create_table "publishers", force: :cascade do |t|
     t.string "name"
-    t.string "isbncode"
+    t.string "isbn_code"
     t.string "place"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -81,6 +82,7 @@ ActiveRecord::Schema.define(version: 2018_10_31_063431) do
     t.index ["user_status_id"], name: "index_users_on_user_status_id"
   end
 
+  add_foreign_key "bibliographies", "publishers"
   add_foreign_key "loan_histories", "collections"
   add_foreign_key "loan_histories", "users"
   add_foreign_key "loans", "collections"
