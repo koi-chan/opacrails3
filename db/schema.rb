@@ -10,10 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_152013) do
+ActiveRecord::Schema.define(version: 2018_10_31_153616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authorities", force: :cascade do |t|
+    t.string "name"
+    t.string "name_kana"
+    t.bigint "authority_type_id"
+    t.bigint "ndl_authorities_id"
+    t.bigint "see_reference"
+    t.bigint "see_also_reference"
+    t.bigint "authority_see_reference_id"
+    t.bigint "hypernym"
+    t.bigint "hyponym"
+    t.bigint "related"
+    t.integer "start_year"
+    t.integer "end_year"
+    t.string "major_subject"
+    t.text "history"
+    t.text "source"
+    t.text "memo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["authority_see_reference_id"], name: "index_authorities_on_authority_see_reference_id"
+    t.index ["authority_type_id"], name: "index_authorities_on_authority_type_id"
+  end
+
+  create_table "authority_see_references", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "authority_types", force: :cascade do |t|
     t.string "name"
@@ -99,6 +128,8 @@ ActiveRecord::Schema.define(version: 2018_10_31_152013) do
     t.index ["user_status_id"], name: "index_users_on_user_status_id"
   end
 
+  add_foreign_key "authorities", "authority_see_references"
+  add_foreign_key "authorities", "authority_types"
   add_foreign_key "bibliographies", "publishers"
   add_foreign_key "loan_histories", "collections"
   add_foreign_key "loan_histories", "users"

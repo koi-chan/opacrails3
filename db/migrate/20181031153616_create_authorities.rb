@@ -7,7 +7,7 @@ class CreateAuthorities < ActiveRecord::Migration[5.2]
       t.bigint :ndl_authorities_id
       t.bigint :see_reference
       t.bigint :see_also_reference
-      t.references :authority_see_reference, foregin_key: true
+      t.references :authority_see_reference, foreign_key: true
       t.bigint :hypernym
       t.bigint :hyponym
       t.bigint :related
