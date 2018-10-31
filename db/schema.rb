@@ -10,18 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_31_024006) do
+ActiveRecord::Schema.define(version: 2018_10_31_061953) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bibliographies", force: :cascade do |t|
-    t.bigint "isbn13"
     t.string "publisher"
     t.string "author"
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "isbn13"
     t.index ["title"], name: "index_bibliographies_on_title"
   end
 
