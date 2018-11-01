@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :bibliographies, only: %i(index new create show edit update)
   resources :publishers, only: %i(index new create show edit update)
+  resources :authorities, only: %i(index new create show edit update)
   resources :collections, only: %i(index new create show edit update)
   resources :users, only: %i(index new create show edit update)
   resources :user_statuses, only: %i(index new create show edit update)
