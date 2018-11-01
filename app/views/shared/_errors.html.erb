@@ -1,0 +1,6 @@
+<% if(errors.any?) %>
+  <%= pluralize(errors.count, 'error') %>
+  <ul><%= errors.full_messages.each do |e| %>
+    <li><%= e %></li>
+  <% end %></ul>
+<% end %>

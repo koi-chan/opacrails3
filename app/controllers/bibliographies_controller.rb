@@ -1,5 +1,6 @@
 class BibliographiesController < ApplicationController
   before_action :set_target_bibliography, only: [:show, :edit, :update]
+  before_action :set_references, only: [:new, :create, :edit, :update]
 
   def index
     @bibliographies = Bibliography.all
@@ -7,26 +8,30 @@ class BibliographiesController < ApplicationController
 
   def new
     @bibliography = Bibliography.new
-    @publishers = Publisher.all
   end
 
   def create
     @bibliography = Bibliography.new(bibliography_params)
-    @bibliography.save
-    redirect_to(@bibliography)
+    if(@bibliography.save)
+      redirect_to(@bibliography)
+    else
+      render(:new)
+    end
   end
 
   def show
   end
 
   def edit
-    @publishers = Publisher.all
   end
 
   def update
     @bibliography.update(bibliography_params)
-    @bibliography.save
-    redirect_to(@bibliography)
+    if(@bibliography.save)
+      redirect_to(@bibliography)
+    else
+      render(:edit)
+    end
   end
 
   private
@@ -34,10 +39,14 @@ class BibliographiesController < ApplicationController
   def bibliography_params
     params.
       require(:bibliography).
-      permit(:isbn13, :publisher, :author, :title)
+      permit(:isbn13, :publisher_id, :author, :title)
   end
 
   def set_target_bibliography
     @bibliography = Bibliography.find(params[:id])
+  end
+
+  def set_references
+    @publishers = Publisher.all
   end
 end
