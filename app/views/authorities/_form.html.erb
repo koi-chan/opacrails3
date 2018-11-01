@@ -1,0 +1,11 @@
+<table><%= form_with(model: @authority) do |f| %>
+  <% %i(name name_kana authority_type_id ndl_authorities_id see_reference see_also_reference authority_see_reference_id hypernym hyponym related start_year end_year major_subject history source memo).each do |c| %>
+  <tr>
+    <th><%= f.label(c) %></th>
+    <td><%= f.text_field(c) %></td>
+  </tr>
+  <% end %>
+  <tr>
+    <td colspan="2"><%= f.submit %></td>
+  </tr>
+<% end %></table>

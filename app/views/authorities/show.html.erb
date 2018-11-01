@@ -1,2 +1,79 @@
 <h1>Authorities#show</h1>
 <p>Find me in app/views/authorities/show.html.erb</p>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <td><%= @authority.id %></td>
+  </tr>
+  <tr>
+    <th>種目</th>
+    <td><%= @authority.name %></td>
+  </tr>
+  <tr>
+    <th>種目(ヨミ)</th>
+    <td><%= @authority.name_kana %></td>
+  </tr>
+  <tr>
+    <th>典拠種別</th>
+    <td><%= @authority.authority_type_id %></td>
+  </tr>
+  <tr>
+    <th>NDL Authorities ID</th>
+    <td><%= @authority.ndl_authorities_id %></td>
+  </tr>
+  <tr>
+    <th>別名(を見よ参照)</th>
+    <td><%= @authority.see_reference %></td>
+  </tr>
+  <tr>
+    <th>別名(をも見よ参照)</th>
+    <td><%= @authority.see_also_reference %></td>
+  </tr>
+  <tr>
+    <th>別名の種別</th>
+    <td><%= @authority.authority_see_reference_id %></td>
+  </tr>
+  <tr>
+    <th>上位語</th>
+    <td><%= @authority.hypernym %></td>
+  </tr>
+  <tr>
+    <th>下位語</th>
+    <td><%= @authority.hyponym %></td>
+  </tr>
+  <tr>
+    <th>関連語</th>
+    <td><%= @authority.related %></td>
+  </tr>
+  <tr>
+    <th>生没年・設立解散年</th>
+    <td><%= @authority.start_year %> - <%= @authority.end_year %></td>
+  </tr>
+  <tr>
+    <th>専攻</th>
+    <td><%= @authority.major_subject %></td>
+  </tr>
+  <tr>
+    <th>経歴・来歴</th>
+    <td><%= @authority.history %></td>
+  </tr>
+  <tr>
+    <th>出典</th>
+    <td><%= @authority.source %></td>
+  </tr>
+  <tr>
+    <th>注記</th>
+    <td><%= @authority.memo %></td>
+  </tr>
+  <tr>
+    <th>作成日</th>
+    <td><%= @authority.created_at %></td>
+  </tr>
+  <tr>
+    <th>最終更新日</th>
+    <td><%= @authority.updated_at %></td>
+  </tr>
+</table>
+
+<%= link_to('edit', edit_authority_path(@authority)) %>

@@ -1,2 +1,57 @@
 <h1>Authorities#index</h1>
 <p>Find me in app/views/authorities/index.html.erb</p>
+
+<%= link_to('new', new_authority_path) %>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>種目</th>
+      <th>種目(ヨミ)</th>
+      <th>典拠種別</th>
+      <th>NDL Authorities ID</th>
+      <th>別名(を見よ参照)</th>
+      <th>別名(をも見よ参照)</th>
+      <th>別名の種別</th>
+      <th>上位語</th>
+      <th>下位語</th>
+      <th>関連語</th>
+      <th>生年・設立年</th>
+      <th>没年・解散年</th>
+      <th>専攻</th>
+      <th>経歴・来歴</th>
+      <th>出典</th>
+      <th>注記</th>
+      <th>作成日</th>
+      <th>最終更新日</th>
+      <th>詳細表示</th>
+      <th>編集</th>
+    </tr>
+  </thead>
+  <tbody><% @authorities.each do |a| %>
+    <tr>
+      <td><%= a.id %></td>
+      <td><%= a.name %></td>
+      <td><%= a.name_kana %></td>
+      <td><%= a.authority_type_id %></td>
+      <td><%= a.ndl_authorities_id %></td>
+      <td><%= a.see_reference %></td>
+      <td><%= a.see_also_reference %></td>
+      <td><%= a.authority_see_reference_id %></td>
+      <td><%= a.hypernym %></td>
+      <td><%= a.hyponym %></td>
+      <td><%= a.related %></td>
+      <td><%= a.start_year %></td>
+      <td><%= a.end_year %></td>
+      <td><%= a.major_subject %></td>
+      <td><%= a.history %></td>
+      <td><%= a.source %></td>
+      <td><%= a.memo %></td>
+      <td><%= a.created_at %></td>
+      <td><%= a.updated_at %></td>
+      <td><%= link_to('show', authority_path(a)) %></td>
+      <td><%= link_to('edit', edit_authority_path(a)) %></td>
+    </tr>
+  <% end %></tbody>
+</table>
