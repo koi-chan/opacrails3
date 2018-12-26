@@ -20,6 +20,7 @@ class BibliographiesController < ApplicationController
   end
 
   def show
+    @collections = Collection.where(bibliography_id: @bibliography.id)
   end
 
   def edit

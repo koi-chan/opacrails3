@@ -1,6 +1,8 @@
 <h1>Bibliography#show</h1>
 <p>Find me in app/views/bibliography/show.html.erb</p>
 
+<h2>書誌詳細</h2>
+
 <table>
   <tr>
     <th>ID</th>
@@ -33,3 +35,24 @@
 </table>
 
 <%= link_to('edit', edit_bibliography_path(@bibliography)) %>
+
+<h2>所蔵一覧</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>蔵書 ID</th>
+      <th>請求記号</th>
+      <th>貸出状態</th>
+      <th>詳細</th>
+    </tr>
+  </thead>
+  <tbody><% @collections.each do |c| %>
+    <tr>
+      <td><%= c.id %></td>
+      <td><%= c.callnum %></td>
+      <td><%= c.loaned? %></td>
+      <td><%= link_to('show', collection_path(c)) %></td>
+    </tr>
+  <% end %></tbody>
+</table>
