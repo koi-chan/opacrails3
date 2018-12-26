@@ -12,7 +12,7 @@ class CollectionsController < ApplicationController
   def create
     @collection = Collection.new(collection_params)
     @collection.save
-    redirecto_to(@collection)
+    redirect_to(@collection)
   end
 
   def show
